@@ -40,8 +40,8 @@ $SPEC{list_tagged_dirs} = {
     summary => 'Search tagged directories recursively in a list of places',
     description => <<'_',
 
-Note: when a datadir is found, its contents are no longer recursed to search for
-other datadirs.
+Note: when a tagged dir is found, its contents are no longer recursed to search
+for other tagged dirs.
 
 _
     args => {
@@ -107,7 +107,7 @@ sub list_tagged_dirs {
     my @prefixes;
     for my $prefix (@{ $args{prefixes} }) {
         (-d $prefix) or do {
-            log_error "Not a directory '$prefix', skip searching datadirs in this directory";
+            log_error "Not a directory '$prefix', skip searching tagged dirs in this directory";
             next;
         };
         push @prefixes, $prefix;
@@ -215,15 +215,15 @@ single parent directory. For example:
        .tag-media
        ...
    2021/
-     media-2021a/ -> a datadir
+     media-2021a/ -> a tagged dir
        .tag-media
        ...
    etc/
-     foo -> a datadir
+     foo -> a tagged dir
        .tag-media
        ...
      others/
-       bar/ -> a datadir
+       bar/ -> a tagged dir
          .tag-media
          ...
 
