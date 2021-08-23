@@ -21,7 +21,7 @@ $SPEC{':package'} = {
 
 our %argspecs_common = (
     prefixes => {
-        summary => 'Changes file',
+        summary => 'Locations to search for tagged directories',
         schema => ['array*', of=>'dirname*'],
         req => 1,
         pos => 0,
