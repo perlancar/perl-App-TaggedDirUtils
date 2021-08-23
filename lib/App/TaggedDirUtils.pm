@@ -120,22 +120,22 @@ sub list_tagged_dirs {
                 my $matches;
               FILTER: {
                     if ($args{has_tags}) {
-                        for my $tag ($args{has_tags}) {
+                        for my $tag (@{ $args{has_tags} }) {
                             last FILTER unless -e ".tag-$tag";
                         }
                     }
                     if ($args{lacks_tags}) {
-                        for my $tag ($args{lacks_tags}) {
+                        for my $tag (@{ $args{lacks_tags} }) {
                             last FILTER if -e ".tag-$tag";
                         }
                     }
                     if ($args{has_files}) {
-                        for my $file ($args{has_files}) {
+                        for my $file (@{ $args{has_files} }) {
                             last FILTER unless -e $file;
                         }
                     }
                     if ($args{lacks_files}) {
-                        for my $file ($args{lacks_files}) {
+                        for my $file (@{ $args{lacks_files} }) {
                             last FILTER if -e $file;
                         }
                     }
